@@ -29,5 +29,5 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          nohup python app/main.py &
+          nohup python app/main.py > flask.log 2>&1 &
           EOF
