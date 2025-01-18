@@ -29,9 +29,13 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          nohup python app/main.py > flask.log 2>&1 &
+          nohup /home/ubuntu/project2-test/venv/bin/python app/main.py > flask.log 2>&1 &
           EOF
 
       - name: Verify Flask log
         run: |
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          cd ~/project2-test
           ls -l flask.log || echo "flask.log not found"
+          tail -n 10 flask.log || echo "Unable to read flask.log"
+          EOF
