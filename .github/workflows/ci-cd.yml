@@ -31,3 +31,7 @@ jobs:
           pip install -r requirements.txt
           nohup python app/main.py > flask.log 2>&1 &
           EOF
+
+      - name: Verify Flask log
+        run: |
+          ls -l flask.log || echo "flask.log not found"
