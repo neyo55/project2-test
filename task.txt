@@ -1,0 +1,4 @@
+Basic CI/CD Pipeline with GitHub Actions
+Use GitHub Actions to automate the testing and deployment of a simple codebase. 
+Set up workflows to automatically run tests when code is pushed to the repository, 
+and deploy to a test environment upon successful testing. This will introduce you to the CI/CD pipeline basics.
